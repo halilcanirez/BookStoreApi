@@ -1,5 +1,6 @@
 package com.halil.bookstoreapi.adapter.jpa;
 
+import com.halil.bookstoreapi.domain.customer.Customer;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -31,4 +32,23 @@ public class CustomerEntity {
     @Column(nullable = false)
     private String phoneNumber;
 
+    public static CustomerEntity convertTOEntity(Customer customer){
+        CustomerEntity customerEntity=new CustomerEntity();
+        customerEntity.setMail(customer.getMail());
+        customerEntity.setName(customer.getName());
+        customerEntity.setSurname(customer.getSurname());
+        customerEntity.setPassword(customer.getPassword());
+        customerEntity.setPhoneNumber(customer.getPhoneNumber());
+        return customerEntity;
+    }
+    public Customer convertToCustomer(){
+        return Customer.builder()
+                    .id(id)
+                    .name(name)
+                    .surname(surname)
+                    .mail(mail)
+                    .password(password)
+                    .phoneNumber(phoneNumber)
+                    .build();
+    }
 }
