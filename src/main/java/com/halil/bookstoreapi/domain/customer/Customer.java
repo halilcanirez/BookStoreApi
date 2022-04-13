@@ -1,10 +1,14 @@
 package com.halil.bookstoreapi.domain.customer;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 @Builder
 @Getter
+@NoArgsConstructor
+@AllArgsConstructor
 public class Customer{
     private Long id;
     private String name;
@@ -12,4 +16,7 @@ public class Customer{
     private String mail;
     private String password;
     private String phoneNumber;
+    public void encodePassword(String password) {
+        this.password = password;
+    }
 }

@@ -1,4 +1,4 @@
-package com.halil.bookstoreapi.adapter.jpa;
+package com.halil.bookstoreapi.adapter.jpa.customer;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

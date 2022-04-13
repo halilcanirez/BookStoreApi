@@ -1,4 +1,4 @@
-package com.halil.bookstoreapi.adapter.jpa;
+package com.halil.bookstoreapi.adapter.jpa.customer;
 
 import com.halil.bookstoreapi.domain.customer.Customer;
 import lombok.Getter;
@@ -8,13 +8,12 @@ import javax.persistence.*;
 
 @Getter
 @Setter
-@Table
+@Table(name = "customers")
 @Entity
 public class CustomerEntity {
 
     @Id
-    @SequenceGenerator(name = "Customer" , sequenceName = "CUSTOMER_ID_SEQ")
-    @GeneratedValue(generator = "Customer")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(length = 100, nullable = false)
@@ -29,7 +28,6 @@ public class CustomerEntity {
     @Column(nullable = false)
     private String password;
 
-    @Column(nullable = false)
     private String phoneNumber;
 
     public static CustomerEntity convertTOEntity(Customer customer){

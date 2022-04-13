@@ -1,6 +1,8 @@
-package com.halil.bookstoreapi.adapter.jpa;
+package com.halil.bookstoreapi.adapter.jpa.customer;
 
 import com.halil.bookstoreapi.domain.customer.Customer;
+import com.halil.bookstoreapi.domain.exception.BookStoreApiDataNotFoundException;
+import com.halil.bookstoreapi.domain.exception.ExceptionType;
 import com.halil.bookstoreapi.domain.port.CustomerPersistencePort;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -19,14 +21,14 @@ public class CustomerJpaAdapter implements CustomerPersistencePort {
     @Override
     public Customer retrieveCustomer(Long id) {
         return customerJpaRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("todo bro")) // TODO exceptin
+                .orElseThrow(() -> new BookStoreApiDataNotFoundException(ExceptionType.CUSTOMER_DATA_NOT_FOUND))
                 .convertToCustomer();
     }
 
     @Override
     public Customer retrieveCustomerByMail(String mail) {
         return customerJpaRepository.findByMail(mail)
-                .orElseThrow(() -> new RuntimeException("fegg"))// Todo ecp
+                .orElseThrow(() -> new BookStoreApiDataNotFoundException(ExceptionType.CUSTOMER_DATA_NOT_FOUND))
                 .convertToCustomer();
     }
 

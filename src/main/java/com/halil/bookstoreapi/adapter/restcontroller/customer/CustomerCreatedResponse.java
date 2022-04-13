@@ -1,4 +1,4 @@
-package com.halil.bookstoreapi.adapter.restcontroller;
+package com.halil.bookstoreapi.adapter.restcontroller.customer;
 
 import com.halil.bookstoreapi.domain.customer.Customer;
 import lombok.Builder;
