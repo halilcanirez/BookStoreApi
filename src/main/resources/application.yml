@@ -1,11 +1,24 @@
 spring:
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/postgres
     username: postgres
-    password: 123
+    url: jdbc:postgresql://localhost:5432/postgres
+    password: '123'
   jpa:
     database-platform: org.hibernate.dialect.PostgreSQL10Dialect
-    show-sql: true
+    show-sql: 'true'
     hibernate:
       ddl-auto: create-drop
+redis:
+  host: localhost
+  port: 6379
+
+bookstoreapisecurity:
+  jwt:
+    security:
+      app:
+        key: halil
+      expire:
+        time: 86400000
+application:
+  title: BookStore Api
