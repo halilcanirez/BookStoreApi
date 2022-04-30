@@ -2,7 +2,7 @@ spring:
   datasource:
     driver-class-name: org.postgresql.Driver
     username: postgres
-    url: jdbc:postgresql://localhost:5432/postgres
+    url: jdbc:postgresql://172.25.48.1:5432/postgres
     password: '123'
   jpa:
     database-platform: org.hibernate.dialect.PostgreSQL10Dialect
@@ -22,3 +22,8 @@ bookstoreapisecurity:
         time: 86400000
 application:
   title: BookStore Api
+
+  172:
+    25:
+      48:
+        1:
